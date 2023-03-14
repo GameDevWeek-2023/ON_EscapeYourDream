@@ -9,6 +9,10 @@ public class LayerChange : MonoBehaviour
     private readonly int minLayer = 1;
     private readonly int maxLayer = 4;
     private static int currentLayer = 1;
+    public int Layer
+    {
+        get => currentLayer;
+    }
     private Transform player;
 
     private void Start()
