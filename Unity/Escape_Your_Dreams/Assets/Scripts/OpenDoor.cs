@@ -18,6 +18,10 @@ public class OpenDoor : MonoBehaviour
     {
         parentTransform = transform.parent;
     }
+    private void Unlock()
+    {
+        locked = false;
+    }
     private void Interacted()
     {
         if(!locked && closed && !moving)

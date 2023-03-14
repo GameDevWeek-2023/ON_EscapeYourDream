@@ -15,26 +15,39 @@ public class GrabObject : MonoBehaviour
     private LayerMask ignoreLayers;
     [SerializeField]
     private float pickupForce = 150f;
+    private LayerMask grabbable;
+    private LayerMask grabbableConnected;
     private LayerMask grabbed;
     private GameObject target = null;
     private Rigidbody targetRB = null;
     private Transform targetParent = null;
     private Vector3 originalTargetPosition = Vector3.zero;
     public static readonly float maxHoldAreaDistance = 2;
+    private LayerMask currentMask = 0;
 
     private void Start()
     {
+        grabbable = LayerMask.GetMask("Grabbable");
         grabbed = LayerMask.GetMask("Grabbed");
+        grabbableConnected = LayerMask.GetMask("GrabbableConnected");
     }
     private void OnGrab()
     {
         if(target == null)
         {
             RaycastHit hit;
-            if (Physics.Linecast(cameraTransform.position, cameraTransform.position + cameraTransform.forward * maxHoldAreaDistance, out hit) && targetLayer == (targetLayer | (1 << hit.transform.gameObject.layer)))
+            if (Physics.Linecast(cameraTransform.position, cameraTransform.position + cameraTransform.forward * maxHoldAreaDistance, out hit) && ((targetLayer & (1 << hit.transform.gameObject.layer)) > 0))
             {
                 target = hit.transform.gameObject;
-                originalTargetPosition = hit.transform.position;
+                if(grabbableConnected == (grabbableConnected | 1 << hit.transform.gameObject.layer))
+                {
+                    originalTargetPosition = hit.transform.position;
+                    currentMask = grabbableConnected;
+                }
+                else
+                {
+                    currentMask = grabbable;
+                }
                 targetParent = target.transform.parent;
                 target.transform.parent = holdArea;
                 targetRB = target.GetComponent<Rigidbody>();
@@ -46,18 +59,21 @@ public class GrabObject : MonoBehaviour
         }
         else
         {
-            bool skip = true;
-            foreach(Transform child in targetParent.GetComponentsInChildren<Transform>())
+            if(currentMask == grabbableConnected)
             {
-                if (skip)
+                bool skip = true;
+                foreach (Transform child in targetParent.GetComponentsInChildren<Transform>())
                 {
-                    skip = false;
-                    continue;
+                    if (skip)
+                    {
+                        skip = false;
+                        continue;
+                    }
+                    child.SetPositionAndRotation(child.position.y * Vector3.up + target.transform.position - originalTargetPosition.y * Vector3.up, target.transform.rotation);
                 }
-                child.SetPositionAndRotation(child.position.y * Vector3.up + target.transform.position - originalTargetPosition.y * Vector3.up, target.transform.rotation);
             }
             target.transform.parent = targetParent;
-            target.transform.gameObject.layer = (int)Mathf.Log(targetLayer.value, 2);
+            target.transform.gameObject.layer = (int)Mathf.Log(currentMask.value, 2);
             targetRB.freezeRotation = false;
             targetRB.useGravity = true;
             targetRB.drag = 1;
@@ -72,7 +88,7 @@ public class GrabObject : MonoBehaviour
         RaycastHit hit;
         if (Physics.Linecast(cameraTransform.position, cameraTransform.position + cameraTransform.forward * maxHoldAreaDistance, out hit, ignoreLayers))
         {
-            holdArea.position = hit.point + hit.normal*0.2f;
+            holdArea.position = hit.point + hit.normal*0.1f;
         }
         else
         {
