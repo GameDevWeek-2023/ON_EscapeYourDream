@@ -17,6 +17,8 @@ public class GrabObject : MonoBehaviour
     private float pickupForce = 150f;
     private GameObject target = null;
     private Rigidbody targetRB = null;
+    private Transform targetParent = null;
+    private Vector3 originalTargetPosition = Vector3.zero;
     
     private void OnGrab()
     {
@@ -26,6 +28,8 @@ public class GrabObject : MonoBehaviour
             if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, 2.5f, targetLayers))
             {
                 target = hit.transform.gameObject;
+                originalTargetPosition = hit.transform.position;
+                targetParent = target.transform.parent;
                 target.transform.parent = holdArea;
                 targetRB = target.GetComponent<Rigidbody>();
                 targetRB.useGravity = false;
@@ -35,7 +39,17 @@ public class GrabObject : MonoBehaviour
         }
         else
         {
-            target.transform.parent = null;
+            bool skip = true;
+            foreach(Transform child in targetParent.GetComponentsInChildren<Transform>())
+            {
+                if (skip)
+                {
+                    skip = false;
+                    continue;
+                }
+                child.SetPositionAndRotation(child.position.y * Vector3.up + target.transform.position - originalTargetPosition.y * Vector3.up, target.transform.rotation);
+            }
+            target.transform.parent = targetParent;
             targetRB.freezeRotation = false;
             targetRB.useGravity = true;
             targetRB.drag = 1;
