@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 3182184147726845990}
   - component: {fileID: 5337752425181892898}
   - component: {fileID: 630781987002198299}
+  - component: {fileID: 2196400342005834906}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -170,7 +171,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.45
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -220,7 +221,7 @@ MonoBehaviour:
   jumpForce: 5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
 --- !u!114 &775745667527003303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,6 +287,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TooltipContainer: {fileID: 3336641410831558860}
   cameraTransform: {fileID: 775745667819424053}
+--- !u!136 &2196400342005834906
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775745667527003295}
+  m_Material: {fileID: 13400000, guid: fc0fb79ce98782d4c97f931dbac86952, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.01, z: 0}
 --- !u!1 &775745667819424048
 GameObject:
   m_ObjectHideFlags: 0
