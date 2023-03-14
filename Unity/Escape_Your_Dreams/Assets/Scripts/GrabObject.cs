@@ -25,8 +25,6 @@ public class GrabObject : MonoBehaviour
     private void Start()
     {
         grabbed = LayerMask.GetMask("Grabbed");
-        Debug.Log(Mathf.Log(grabbed.value, 2));
-        Debug.Log(targetLayer.value);
     }
     private void OnGrab()
     {
