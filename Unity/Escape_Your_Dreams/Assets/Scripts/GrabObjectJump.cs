@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GrabObject : MonoBehaviour
+public class GrabObjectJump : MonoBehaviour
 {
     [SerializeField]
     private Transform cameraTransform;
     [SerializeField]
-    private Transform holdArea;
-    [SerializeField]
     private LayerMask targetLayers;
     [SerializeField]
     private LayerMask ignoreLayers;
-    [SerializeField]
-    private float pickupForce = 150f;
+    private float pickupDistance = 5;
     private GameObject target = null;
     private Rigidbody targetRB = null;
     
@@ -22,26 +19,30 @@ public class GrabObject : MonoBehaviour
     {
         if(target == null)
         {
+            Debug.Log("Grab");
             RaycastHit hit;
-            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, 2.5f, targetLayers))
+            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, 5, targetLayers))
             {
+                Debug.Log("FoundGrab");
                 target = hit.transform.gameObject;
-                target.transform.parent = holdArea;
                 targetRB = target.GetComponent<Rigidbody>();
                 targetRB.useGravity = false;
-                targetRB.drag = 10;
                 targetRB.freezeRotation = true;
             }
         }
         else
         {
-            target.transform.parent = null;
+            Debug.Log("Let Go");
             targetRB.freezeRotation = false;
             targetRB.useGravity = true;
-            targetRB.drag = 1;
             target = null;
             targetRB = null;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        
     }
 
     // Update is called once per frame
@@ -49,11 +50,7 @@ public class GrabObject : MonoBehaviour
     {
         if(target != null)
         {
-            if(Vector3.Distance(holdArea.position, target.transform.position) > 0.1f)
-            {
-                Vector3 moveDirection = holdArea.position - target.transform.position;
-                targetRB.AddForce(moveDirection * pickupForce);
-            }
+            target.transform.position = cameraTransform.position + pickupDistance * cameraTransform.forward;
         }
     }
 }

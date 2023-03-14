@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &145976400288007825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5196915111293158511}
+  m_Layer: 6
+  m_Name: HoldArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5196915111293158511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145976400288007825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 775745667819424053}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &775745667527003295
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +224,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092f1670eb2b2804dbe923bc67d8006c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 775745667819424053}
+  holdArea: {fileID: 5196915111293158511}
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  pickupForce: 150
 --- !u!1 &775745667819424048
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +264,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1923134856969907558}
+  - {fileID: 5196915111293158511}
   m_Father: {fileID: 775745667527003301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
