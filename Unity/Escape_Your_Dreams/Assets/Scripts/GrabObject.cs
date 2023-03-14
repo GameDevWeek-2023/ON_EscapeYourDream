@@ -20,6 +20,7 @@ public class GrabObject : MonoBehaviour
     private Rigidbody targetRB = null;
     private Transform targetParent = null;
     private Vector3 originalTargetPosition = Vector3.zero;
+    public static readonly float maxHoldAreaDistance = 2;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class GrabObject : MonoBehaviour
         if(target == null)
         {
             RaycastHit hit;
-            if (Physics.Linecast(cameraTransform.position, cameraTransform.position + cameraTransform.forward * 2.5f, out hit) && targetLayer == (targetLayer | (1 << hit.transform.gameObject.layer)))
+            if (Physics.Linecast(cameraTransform.position, cameraTransform.position + cameraTransform.forward * maxHoldAreaDistance, out hit) && targetLayer == (targetLayer | (1 << hit.transform.gameObject.layer)))
             {
                 target = hit.transform.gameObject;
                 originalTargetPosition = hit.transform.position;
@@ -71,20 +72,21 @@ public class GrabObject : MonoBehaviour
     void FixedUpdate()
     {
         RaycastHit hit;
-        if (Physics.Linecast(cameraTransform.position, cameraTransform.position + cameraTransform.forward * 2.5f, out hit, ignoreLayers))
+        if (Physics.Linecast(cameraTransform.position, cameraTransform.position + cameraTransform.forward * maxHoldAreaDistance, out hit, ignoreLayers))
         {
             holdArea.position = hit.point + hit.normal*0.2f;
         }
         else
         {
-            holdArea.position = cameraTransform.position + cameraTransform.forward * 2.5f;
+            holdArea.position = cameraTransform.position + cameraTransform.forward * maxHoldAreaDistance;
         }
-        if (target != null && Vector3.Distance(cameraTransform.position, holdArea.position) > 0.5f)
+
+        if(target != null)
         {
-            if(Vector3.Distance(holdArea.position, target.transform.position) > 0.1f)
+            if (Vector3.Distance(holdArea.position, target.transform.position) > 0.1f)
             {
                 Vector3 moveDirection = holdArea.position - target.transform.position;
-                targetRB.AddForce(moveDirection * pickupForce);               
+                targetRB.AddForce(moveDirection * pickupForce);
             }
         }
     }
