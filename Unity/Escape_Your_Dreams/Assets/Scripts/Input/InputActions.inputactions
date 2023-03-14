@@ -33,7 +33,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Shoot",
+                    "name": "Grab",
                     "type": "Button",
                     "id": "57fdaff1-c562-4148-a518-e17e80bb17c5",
                     "expectedControlType": "Button",
@@ -42,13 +42,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ChangeBullet",
-                    "type": "Value",
-                    "id": "7ae85fd4-4148-4470-9955-d0aa25cda2d6",
-                    "expectedControlType": "Axis",
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "140b2b6a-c329-4dfe-8e3a-386536a4d3c9",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -136,51 +136,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "Q/E",
-                    "id": "cdff0723-7fcf-4684-a388-e6bdae813863",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeBullet",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "7c6bd1df-331e-4354-aa96-bfee55afa71f",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeBullet",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "21d542f3-003d-4c18-b6df-54c66ef0ffa1",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeBullet",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "46817f1f-cf0c-404f-b71a-9f9ae338eb49",
-                    "path": "<Mouse>/scroll/y",
+                    "id": "44583dce-b880-4b49-9628-0a8b4051c251",
+                    "path": "",
                     "interactions": "",
-                    "processors": "Clamp(min=-1,max=1)",
+                    "processors": "",
                     "groups": "",
-                    "action": "ChangeBullet",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

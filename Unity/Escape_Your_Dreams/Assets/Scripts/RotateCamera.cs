@@ -13,6 +13,12 @@ public class RotateCamera : MonoBehaviour
     private float xRotation = 0;
     Vector2 delta;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     private void OnLook(InputValue value)
     {
         delta = value.Get<Vector2>() * mouseSensitivity;
@@ -25,6 +31,5 @@ public class RotateCamera : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation - delta.y, -90, 90);
         transform.localRotation *= Quaternion.Euler(0, delta.x, 0);
         childCamera.localRotation *= Quaternion.Euler(xRotation - oldX, 0, 0);
-
     }
 }
