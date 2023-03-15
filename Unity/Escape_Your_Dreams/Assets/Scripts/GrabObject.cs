@@ -51,6 +51,7 @@ public class GrabObject : MonoBehaviour
                 targetParent = target.transform.parent;
                 target.transform.parent = holdArea;
                 targetRB = target.GetComponent<Rigidbody>();
+                targetRB.isKinematic = false;
                 targetRB.useGravity = false;
                 targetRB.drag = 10;
                 targetRB.freezeRotation = true;
@@ -85,6 +86,7 @@ public class GrabObject : MonoBehaviour
             targetRB.freezeRotation = false;
             targetRB.useGravity = true;
             targetRB.drag = 1;
+            target.SendMessage("GetDropped", SendMessageOptions.DontRequireReceiver);
             target = null;
             targetRB = null;
         }  
