@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PostItPortal : MonoBehaviour
+public class Portal : MonoBehaviour
 {
     [SerializeField]
     private Transform otherPortal;
