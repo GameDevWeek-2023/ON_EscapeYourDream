@@ -6,12 +6,10 @@ public class PostItDrop : MonoBehaviour
 {
     private LayerMask ignoreLayers;
     private Rigidbody rb;
-    private Collider trigger;
     private void Start()
     {
         ignoreLayers = LayerMask.GetMask("Grabbable", "GrabbableConnected", "Player", "Grabbed", "Interactable");
         rb = gameObject.GetComponent<Rigidbody>();
-        trigger = gameObject.GetComponent<SphereCollider>();
     }
     private void GetDropped()
     {
@@ -35,15 +33,10 @@ public class PostItDrop : MonoBehaviour
 
     private void UpdateConnectedPosition()
     {
-        int skip = 2;
-        foreach (Transform child in transform.parent.GetComponentsInChildren<Transform>())
+        Transform[] PostIts = transform.parent.GetComponentsInChildren<Transform>();
+        for(int i = 1; i<4; i++)
         {
-            if (skip > 0)
-            {
-                skip--;
-                continue;
-            }
-            child.SetPositionAndRotation((child.position.y - child.position.y % 100) * Vector3.up + transform.position, transform.rotation);
+            PostIts[i].SetPositionAndRotation((PostIts[i].position.y - PostIts[i].position.y % 100) * Vector3.up + transform.position, transform.rotation);
         }
     }
 }
