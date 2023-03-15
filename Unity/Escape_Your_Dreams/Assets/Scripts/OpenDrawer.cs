@@ -2,23 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenDoor : MonoBehaviour
+public class OpenDrawer : MonoBehaviour
 {
+    enum Direction
+    {
+        openTowardsX = 1,
+        openAwayFromX = -1
+    }
     [SerializeField]
     bool locked = false;
     bool closed = true;
     bool moving = false;
-    private Transform parentTransform;
-    private float rotationSpeed = 5;
-    float minOpen = -90;
-    float maxClosed = 0;
-    float currentRotation = 0;
+    [SerializeField]
+    float openingSpeed = 5;
+    float closedDistance = 0;
+    [SerializeField]
+    float openDistance = 1;
+    float currentDistance = 0;
+    [SerializeField]
+    private Direction openDirection = Direction.openTowardsX;
     private Interactable Tooltip;
+    private Vector3 originalPosition;
+    private Rigidbody rb;
 
     private void Start()
     {
-        parentTransform = transform.parent;
         Tooltip = gameObject.GetComponent<Interactable>();
+        originalPosition = transform.position;
+        rb = transform.GetComponent<Rigidbody>();
     }
     private void Unlock()
     {
@@ -39,29 +50,27 @@ public class OpenDoor : MonoBehaviour
             Tooltip.interactText = "Open";
         }
     }
-
     private void FixedUpdate()
     {
         if (moving)
         {
-            float oldRotation = currentRotation;
-            int rotationDirection;
+            int moveDirection;
             if (closed)
             {
-                rotationDirection = 1;
+                moveDirection = -1;
             }
             else
             {
-                rotationDirection = -1;
+                moveDirection = 1;
             }
-            currentRotation += rotationSpeed * rotationDirection;
+            currentDistance += openingSpeed * moveDirection;
 
-            if (currentRotation > maxClosed || currentRotation < minOpen)
+            if (currentDistance >openDistance || currentDistance < closedDistance)
             {
                 moving = false;
             }
-            currentRotation = Mathf.Clamp(currentRotation, minOpen, maxClosed);
-            parentTransform.localRotation *= Quaternion.Euler(0, currentRotation - oldRotation, 0);
+            currentDistance = Mathf.Clamp(currentDistance, closedDistance, openDistance);
+            rb.MovePosition(originalPosition + currentDistance * (int)openDirection * transform.right);
         }
     }
 }

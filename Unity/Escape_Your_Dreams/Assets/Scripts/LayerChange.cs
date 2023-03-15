@@ -14,20 +14,24 @@ public class LayerChange : MonoBehaviour
         get => currentLayer;
     }
     private Transform player;
+    private GrabObject objectGrabber;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        objectGrabber = player.GetComponent<GrabObject>();
     }
     private void Interacted()
     {
         if (sleep && currentLayer < maxLayer)
         {
+            objectGrabber.dropObject();
             currentLayer++;
             player.position += Vector3.up * 100;
         }
         else if(!sleep && currentLayer > minLayer)
         {
+            objectGrabber.dropObject();
             currentLayer--;
             player.position += Vector3.up * -100;
         }

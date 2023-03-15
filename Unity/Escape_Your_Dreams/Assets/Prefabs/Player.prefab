@@ -269,10 +269,10 @@ MonoBehaviour:
   holdArea: {fileID: 5196915111293158511}
   targetLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1152
   ignoreLayers:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 1673
   pickupForce: 150
 --- !u!114 &630781987002198299
 MonoBehaviour:
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 50
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
