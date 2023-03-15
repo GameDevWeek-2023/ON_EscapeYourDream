@@ -6,6 +6,8 @@ public class Key : MonoBehaviour
 {
     [SerializeField]
     private int lockID;
+    [SerializeField]
+    private bool destroyOnUnlock = true;
     private void OnTriggerEnter(Collider other)
     {
         Unlockable Lock;
@@ -13,7 +15,8 @@ public class Key : MonoBehaviour
         {
             other.gameObject.SendMessage("Unlock", SendMessageOptions.DontRequireReceiver);
             other.gameObject.SendMessage("UnlockOther", SendMessageOptions.DontRequireReceiver);
-            Destroy(gameObject);
+            if(destroyOnUnlock)
+                Destroy(gameObject);
         }
     }
 }
