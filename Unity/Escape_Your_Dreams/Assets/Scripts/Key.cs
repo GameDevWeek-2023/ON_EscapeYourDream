@@ -11,7 +11,8 @@ public class Key : MonoBehaviour
         Unlockable Lock;
         if(other.gameObject.TryGetComponent<Unlockable>(out Lock) && Lock.lockNumber == lockID)
         {
-            other.gameObject.SendMessage("Unlock");
+            other.gameObject.SendMessage("Unlock", SendMessageOptions.DontRequireReceiver);
+            other.gameObject.SendMessage("UnlockOther", SendMessageOptions.DontRequireReceiver);
             Destroy(gameObject);
         }
     }
