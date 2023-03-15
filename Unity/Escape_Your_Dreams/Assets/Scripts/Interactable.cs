@@ -8,5 +8,6 @@ public class Interactable : MonoBehaviour
     private string text = "Interact";
     public string interactText {
         get => text;
+        set => text = value;
     }
 }

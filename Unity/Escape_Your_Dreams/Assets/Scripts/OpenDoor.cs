@@ -13,10 +13,12 @@ public class OpenDoor : MonoBehaviour
     float minOpen = -90;
     float maxClosed = 0;
     float currentRotation = 0;
+    private Interactable Tooltip;
 
     private void Start()
     {
         parentTransform = transform.parent;
+        Tooltip = gameObject.GetComponent<Interactable>();
     }
     private void Unlock()
     {
@@ -28,11 +30,13 @@ public class OpenDoor : MonoBehaviour
         {
             closed = false;
             moving = true;
+            Tooltip.interactText = "Close";
         }
         else if (!locked && !closed && !moving)
         {
             closed = true;
             moving = true;
+            Tooltip.interactText = "Open";
         }
     }
 

@@ -18,7 +18,7 @@ public class Tooltips : MonoBehaviour
 
     private void Start()
     {
-        grabbable = LayerMask.GetMask("Grabbable");
+        grabbable = LayerMask.GetMask("Grabbable", "GrabbableConnected");
         interactable = LayerMask.GetMask("Interactable");
         grabbed = LayerMask.GetMask("Grabbed");
         grabTooltip = TooltipContainer.GetChild(0);
@@ -29,7 +29,7 @@ public class Tooltips : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        if (Physics.Linecast(cameraTransform.position, cameraTransform.position + cameraTransform.forward * GrabObject.maxHoldAreaDistance, out hit) && grabbable == (grabbable | (1 << hit.transform.gameObject.layer)))
+        if (Physics.Linecast(cameraTransform.position, cameraTransform.position + cameraTransform.forward * GrabObject.maxHoldAreaDistance, out hit) && (grabbable & (1 << hit.transform.gameObject.layer)) > 0)
         {
             grabTooltip.localScale = Vector3.one;
         }
