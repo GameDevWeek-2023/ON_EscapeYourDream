@@ -59,7 +59,15 @@ public class GrabObject : MonoBehaviour
         }
         else
         {
-            if(currentMask == grabbableConnected)
+            dropObject();
+        }
+    }
+
+    public void dropObject()
+    {
+        if(target != null)
+        {
+            if (currentMask == grabbableConnected)
             {
                 bool skip = true;
                 foreach (Transform child in targetParent.GetComponentsInChildren<Transform>())
@@ -79,7 +87,7 @@ public class GrabObject : MonoBehaviour
             targetRB.drag = 1;
             target = null;
             targetRB = null;
-        }
+        }  
     }
 
     // Update is called once per frame
