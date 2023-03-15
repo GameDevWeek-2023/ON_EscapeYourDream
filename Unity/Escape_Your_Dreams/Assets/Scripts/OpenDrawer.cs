@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class OpenDrawer : MonoBehaviour
 {
+    enum Axis
+    {
+        X,
+        Y,
+        Z 
+    }
     enum Direction
     {
-        openTowardsX = 1,
-        openAwayFromX = -1
+        Towards = 1,
+        AwayFrom = -1
     }
     [SerializeField]
     bool locked = false;
@@ -20,7 +26,9 @@ public class OpenDrawer : MonoBehaviour
     float openDistance = 1;
     float currentDistance = 0;
     [SerializeField]
-    private Direction openDirection = Direction.openTowardsX;
+    private Axis AxisToMoveOn = Axis.X;
+    [SerializeField]
+    private Direction openDirection = Direction.Towards;
     private Interactable Tooltip;
     private Vector3 originalPosition;
     private Rigidbody rb;
@@ -70,7 +78,18 @@ public class OpenDrawer : MonoBehaviour
                 moving = false;
             }
             currentDistance = Mathf.Clamp(currentDistance, closedDistance, openDistance);
-            rb.MovePosition(originalPosition + currentDistance * (int)openDirection * transform.right);
+            switch (AxisToMoveOn)
+            {
+                case Axis.X:
+                    rb.MovePosition(originalPosition + currentDistance * (int)openDirection * transform.right);
+                    break;
+                case Axis.Y:
+                    rb.MovePosition(originalPosition + currentDistance * (int)openDirection * transform.up);
+                    break;
+                case Axis.Z:
+                    rb.MovePosition(originalPosition + currentDistance * (int)openDirection * transform.forward);
+                    break;
+            }
         }
     }
 }
