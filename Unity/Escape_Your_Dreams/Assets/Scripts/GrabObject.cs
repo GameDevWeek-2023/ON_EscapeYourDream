@@ -22,7 +22,7 @@ public class GrabObject : MonoBehaviour
     private Rigidbody targetRB = null;
     private Transform targetParent = null;
     private Vector3 originalTargetPosition = Vector3.zero;
-    public static readonly float maxHoldAreaDistance = 2;
+    public static readonly float maxHoldAreaDistance = 2f;
     private LayerMask currentMask = 0;
 
     private void Start()
