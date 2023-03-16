@@ -94,6 +94,9 @@ GameObject:
   - component: {fileID: 1428567831574281889}
   - component: {fileID: 2948841720875916094}
   - component: {fileID: 3191329014058151329}
+  - component: {fileID: 7508455916282389808}
+  - component: {fileID: 4233850931859087632}
+  - component: {fileID: 1623248888706625503}
   m_Layer: 7
   m_Name: Shoes
   m_TagString: Untagged
@@ -147,6 +150,65 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.2, z: 0.3}
   m_Center: {x: 0, y: 0.1, z: 0.1}
+--- !u!114 &7508455916282389808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772336272622789659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3631ffa9db067af49b1a25ae4dbad274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockID: 3
+--- !u!114 &4233850931859087632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772336272622789659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7c11f5ae47f0045acfd80b0eb24695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  toChange:
+  - {fileID: 1772336272622789659}
+  - {fileID: 2265576370022491932}
+  - {fileID: 4563550173636172425}
+  - {fileID: 4141550225742893130}
+  - {fileID: 8957568210556796148}
+  - {fileID: 8038036783490530221}
+  - {fileID: 1841028188798706593}
+  - {fileID: 6755580268840826698}
+  - {fileID: 6598451134434964423}
+  - {fileID: 7838213541637090985}
+  - {fileID: 5156981624410498657}
+  - {fileID: 4986925446071321523}
+  - {fileID: 4989455432349676960}
+  - {fileID: 1284018601536751988}
+  - {fileID: 7072511521870762240}
+--- !u!114 &1623248888706625503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772336272622789659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b71d5875b370254e91f06ed428e9766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLocation: {fileID: 0}
+  toMove:
+  - {fileID: 1428567831574281889}
 --- !u!1 &1841028188798706593
 GameObject:
   m_ObjectHideFlags: 0
