@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5169134887129723795, guid: 024aefa225b0a204ca93f09457489edd, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5169134887129723796, guid: 024aefa225b0a204ca93f09457489edd, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -66,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 5169134887129723797, guid: 024aefa225b0a204ca93f09457489edd, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 2274750045105703015, guid: 7a2350eb64fda6745b6decfc0d8e7d85, type: 3}
+      objectReference: {fileID: 3025242445738630534, guid: 80097f07ea4eadd48a310063be9af791, type: 3}
     - target: {fileID: 5169134887129723798, guid: 024aefa225b0a204ca93f09457489edd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -79,6 +83,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reflected Key Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6992864430703858052, guid: 024aefa225b0a204ca93f09457489edd, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3025242445738630534, guid: 80097f07ea4eadd48a310063be9af791, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 024aefa225b0a204ca93f09457489edd, type: 3}
 --- !u!1 &4637376322875178381 stripped

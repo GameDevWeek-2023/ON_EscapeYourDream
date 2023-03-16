@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6966003146927448091}
   - component: {fileID: 8916968790931540685}
   - component: {fileID: 5338139982131223624}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TubTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 2212207700541287992}
   - component: {fileID: 131955788788598725}
   - component: {fileID: 46013030134855966}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 3871333361470566720}
   - component: {fileID: 6123934519314219458}
   - component: {fileID: 5404364634034323843}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 5384418265592139467}
   - component: {fileID: 5708342184873096311}
   - component: {fileID: 1520993494881045685}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 4070685349677452459}
   - component: {fileID: 3752823317382085853}
   - component: {fileID: 2790074185854408765}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 6460600845050197587}
   - component: {fileID: 8906480983071422404}
   - component: {fileID: 1380931752090220462}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,7 +925,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8378049396245288009}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bathtub-Curtain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
