@@ -6,19 +6,21 @@ public class Key : MonoBehaviour
 {
     [SerializeField]
     private int lockID;
-    [SerializeField]
-    private bool destroyOnUnlock = true;
-    [SerializeField]
-    private GameObject toDestroy;
+    private GrabObject objectGrabber;
+
+    private void Start()
+    {
+        objectGrabber = GameObject.FindGameObjectWithTag("Player").GetComponent<GrabObject>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         Unlockable Lock;
         if(other.gameObject.TryGetComponent<Unlockable>(out Lock) && Lock.lockNumber == lockID)
         {
+            objectGrabber.dropObject();
             other.gameObject.SendMessage("Unlock", SendMessageOptions.DontRequireReceiver);
             other.gameObject.SendMessage("UnlockOther", SendMessageOptions.DontRequireReceiver);
-            if(destroyOnUnlock)
-                Destroy(toDestroy);
+            gameObject.SendMessage("OnUse", SendMessageOptions.DontRequireReceiver);
         }
     }
 }

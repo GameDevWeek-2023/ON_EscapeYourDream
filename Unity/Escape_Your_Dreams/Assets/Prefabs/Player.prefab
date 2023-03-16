@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childCamera: {fileID: 775745667819424053}
-  mouseSensitivity: 0.7
+  mouseSensitivity: 0.4
 --- !u!54 &3182184147726845990
 Rigidbody:
   m_ObjectHideFlags: 0

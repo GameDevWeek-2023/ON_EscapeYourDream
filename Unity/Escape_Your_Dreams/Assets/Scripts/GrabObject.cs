@@ -70,15 +70,13 @@ public class GrabObject : MonoBehaviour
         {
             if (currentMask == grabbableConnected)
             {
-                bool skip = true;
                 foreach (Transform child in targetParent.GetComponentsInChildren<Transform>())
                 {
-                    if (skip)
+                    if (child.parent != targetParent)
                     {
-                        skip = false;
                         continue;
                     }
-                    child.SetPositionAndRotation(child.position.y * Vector3.up + target.transform.position - originalTargetPosition.y * Vector3.up, target.transform.rotation);
+                    child.SetPositionAndRotation((child.position.y - child.position.y % 100) * Vector3.up + target.transform.position - (target.transform.position.y - target.transform.position.y % 100) * Vector3.up, target.transform.rotation);
                 }
             }
             target.transform.parent = targetParent;

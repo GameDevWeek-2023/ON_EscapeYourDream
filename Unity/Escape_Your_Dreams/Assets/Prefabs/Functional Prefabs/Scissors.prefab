@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6026472363806962657}
   - component: {fileID: 6026472363806962658}
   - component: {fileID: 6026472363806962663}
+  - component: {fileID: 3166257647365585994}
   m_Layer: 7
   m_Name: Scissors
   m_TagString: Untagged
@@ -77,8 +78,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockID: 2
-  destroyOnUnlock: 1
-  toDestroy: {fileID: 6026472363806962659}
+--- !u!114 &3166257647365585994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026472363806962659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4b0e4ee3fdf8a439439e9c514cbc33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toDestroy: []
+  needFinalDestroy: 1
+  finalDestroy: {fileID: 6026472363806962659}
 --- !u!1001 &4923194686822433707
 PrefabInstance:
   m_ObjectHideFlags: 0
