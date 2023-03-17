@@ -20,4 +20,9 @@ public class GameMenu : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("StartingScreen");
+    }
+
 }
