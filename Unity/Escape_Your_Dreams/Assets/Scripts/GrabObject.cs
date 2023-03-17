@@ -21,7 +21,9 @@ public class GrabObject : MonoBehaviour
     private GameObject target = null;
     private Rigidbody targetRB = null;
     private Transform targetParent = null;
-    private Vector3 originalTargetPosition = Vector3.zero;
+    private Transform realParent = null;
+    private bool isDirectChild = true;
+    private Vector3 originialLocalPosition = Vector3.zero;
     public static readonly float maxHoldAreaDistance = 2f;
     private LayerMask currentMask = 0;
 
@@ -41,14 +43,25 @@ public class GrabObject : MonoBehaviour
                 target = hit.transform.gameObject;
                 if(grabbableConnected == (grabbableConnected | 1 << hit.transform.gameObject.layer))
                 {
-                    originalTargetPosition = hit.transform.position;
+                    GrabbableConnectedParent grabParent;
+                    if (target.TryGetComponent<GrabbableConnectedParent>(out grabParent))
+                    {
+                        targetParent = grabParent.ConnectingParent;
+                        isDirectChild = grabParent.IsDirectChild;
+                        originialLocalPosition = target.transform.localPosition;
+                        realParent = target.transform.parent;
+                    }
+                    else
+                    {
+                        targetParent = target.transform.parent;
+                    }
                     currentMask = grabbableConnected;
                 }
                 else
                 {
+                    targetParent = target.transform.parent;
                     currentMask = grabbable;
                 }
-                targetParent = target.transform.parent;
                 target.transform.parent = holdArea;
                 targetRB = target.GetComponent<Rigidbody>();
                 targetRB.isKinematic = false;
@@ -72,14 +85,19 @@ public class GrabObject : MonoBehaviour
             {
                 foreach (Transform child in targetParent.GetComponentsInChildren<Transform>())
                 {
-                    if (child.parent != targetParent)
+                    if ( child.parent != targetParent)
                     {
                         continue;
                     }
-                    child.SetPositionAndRotation((child.position.y - child.position.y % 100) * Vector3.up + target.transform.position - (target.transform.position.y - target.transform.position.y % 100) * Vector3.up, target.transform.rotation);
+                    child.position = (child.position.y - child.position.y % 100) * Vector3.up + target.transform.position - (target.transform.position.y - target.transform.position.y % 100) * Vector3.up;
                 }
             }
             target.transform.parent = targetParent;
+            if (!isDirectChild)
+            {
+                target.transform.parent = realParent;
+                target.transform.localPosition = originialLocalPosition;
+            }
             target.transform.gameObject.layer = (int)Mathf.Log(currentMask.value, 2);
             targetRB.freezeRotation = false;
             targetRB.useGravity = true;
@@ -87,6 +105,7 @@ public class GrabObject : MonoBehaviour
             target.SendMessage("GetDropped", SendMessageOptions.DontRequireReceiver);
             target = null;
             targetRB = null;
+            isDirectChild = true;
         }  
     }
 

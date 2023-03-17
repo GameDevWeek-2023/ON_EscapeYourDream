@@ -171,9 +171,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 5
+  ladderSpeed: 0.05
   groundLayer:
     serializedVersion: 2
     m_Bits: 648
+  extraFallForce: 0.025
 --- !u!114 &775745667527003303
 MonoBehaviour:
   m_ObjectHideFlags: 0
