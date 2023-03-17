@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivateOnUse : MonoBehaviour
+public class SetActiveOnUse : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] targets;
+    [SerializeField]
+    private bool[] states;
     private void OnUse()
     {
-        foreach(GameObject target in targets)
+        for(int i = 0; i<targets.Length; i++)
         {
-            target.SetActive(true);
+            targets[i].SetActive(states[i]);
         }
     }
 }
