@@ -15,10 +15,17 @@ public class FadeToWin : MonoBehaviour
     float fadeSpeed = 0.0075f;
     float fadeDirection = 1;
     float currentAlpha = 0;
+    private bool locked = true;
 
     private void Interacted()
     {
-        fade = true;
+        if(!locked)
+            fade = true;
+    }
+
+    private void Unlock()
+    {
+        locked = false;
     }
 
     private void FixedUpdate()

@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 7508455916282389808}
   - component: {fileID: 4233850931859087632}
   - component: {fileID: 1623248888706625503}
+  - component: {fileID: 7995081353303172704}
   m_Layer: 7
   m_Name: Shoes
   m_TagString: Untagged
@@ -209,6 +210,19 @@ MonoBehaviour:
   targetLocation: {fileID: 0}
   toMove:
   - {fileID: 1428567831574281889}
+--- !u!114 &7995081353303172704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772336272622789659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7893986aaeb176d46af65e91ed2d611e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 2948841720875916094}
 --- !u!1 &1841028188798706593
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,8 +18,8 @@ public class Key : MonoBehaviour
         if(other.gameObject.TryGetComponent<Unlockable>(out Lock) && Lock.lockNumber == lockID)
         {
             objectGrabber.dropObject();
-            other.gameObject.SendMessage("Unlock", SendMessageOptions.DontRequireReceiver);
             other.gameObject.SendMessage("UnlockOther", SendMessageOptions.DontRequireReceiver);
+            other.gameObject.SendMessage("Unlock", SendMessageOptions.DontRequireReceiver);
             gameObject.SendMessage("OnUse", SendMessageOptions.DontRequireReceiver);
         }
     }
