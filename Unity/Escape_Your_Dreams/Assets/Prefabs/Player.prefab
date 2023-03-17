@@ -171,9 +171,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 5
+  ladderSpeed: 0.05
   groundLayer:
     serializedVersion: 2
     m_Bits: 648
+  extraFallForce: 0.025
 --- !u!114 &775745667527003303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childCamera: {fileID: 775745667819424053}
-  mouseSensitivity: 0.4
+  mouseSensitivity: 0.25
 --- !u!54 &3182184147726845990
 Rigidbody:
   m_ObjectHideFlags: 0

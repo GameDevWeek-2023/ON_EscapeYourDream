@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
+    enum Direction
+    {
+        towardsZ = 1,
+        awayFromZ = -1
+    }
     [SerializeField]
     bool locked = false;
+    [SerializeField]
+    Direction direction = Direction.towardsZ;
     bool closed = true;
     bool moving = false;
     private Transform parentTransform;
@@ -61,7 +68,7 @@ public class OpenDoor : MonoBehaviour
                 moving = false;
             }
             currentRotation = Mathf.Clamp(currentRotation, minOpen, maxClosed);
-            parentTransform.localRotation *= Quaternion.Euler(0, currentRotation - oldRotation, 0);
+            parentTransform.localRotation *= Quaternion.Euler(0, (currentRotation - oldRotation) * (float)direction, 0);
         }
     }
 }

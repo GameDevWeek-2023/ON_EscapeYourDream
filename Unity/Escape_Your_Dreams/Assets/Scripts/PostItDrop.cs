@@ -6,6 +6,8 @@ public class PostItDrop : MonoBehaviour
 {
     private LayerMask ignoreLayers;
     private Rigidbody rb;
+    [SerializeField]
+    private bool isConnected = true;
     private void Start()
     {
         ignoreLayers = LayerMask.GetMask("Grabbable", "GrabbableConnected", "Player", "Grabbed", "Interactable");
@@ -28,7 +30,8 @@ public class PostItDrop : MonoBehaviour
         rb.isKinematic = true;
         transform.forward = hit.normal;
         transform.position = hit.point + transform.forward * 0.005f;
-        UpdateConnectedPosition();
+        if(isConnected)
+            UpdateConnectedPosition();
     }
 
     private void UpdateConnectedPosition()

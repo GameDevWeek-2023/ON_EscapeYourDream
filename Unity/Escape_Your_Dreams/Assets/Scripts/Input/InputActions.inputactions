@@ -132,7 +132,7 @@
                     "id": "094c2c52-e254-4ad3-9cb3-c6e19958c497",
                     "path": "<Keyboard>/space",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Clamp(max=1)",
                     "groups": "",
                     "action": "Jump",
                     "isComposite": false,

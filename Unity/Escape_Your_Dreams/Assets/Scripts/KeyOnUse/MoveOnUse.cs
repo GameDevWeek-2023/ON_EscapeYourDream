@@ -5,15 +5,15 @@ using UnityEngine;
 public class MoveOnUse : MonoBehaviour
 {
     [SerializeField]
-    private Transform targetLocation;
-    [SerializeField]
     private Transform[] toMove;
+    [SerializeField]
+    private Transform[] targets;
 
     private void OnUse()
     {
-        foreach(Transform obj in toMove)
+        for(int i = 0; i< targets.Length; i++)
         {
-            obj.SetLocalPositionAndRotation(targetLocation.position, targetLocation.rotation);
+            toMove[i].SetPositionAndRotation(targets[i].position, targets[i].rotation);
         }
     }
 }
