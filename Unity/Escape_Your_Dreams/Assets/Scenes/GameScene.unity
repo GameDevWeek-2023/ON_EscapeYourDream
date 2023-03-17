@@ -4844,7 +4844,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 311043309}
-  m_RootOrder: 27
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &1642735606
 MonoBehaviour:
@@ -6107,6 +6107,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6507589643898853994, guid: 37b2c31354119224a9e7fdee419ee984, type: 3}
+--- !u!1 &2084631797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6627983774528844244, guid: a9410a0c56e795247ba2316f0547c225, type: 3}
+  m_PrefabInstance: {fileID: 1852186084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2084631799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084631797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8326c98ebf8012429e88bf646e1a34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: Heat
+--- !u!114 &2084631800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084631797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 268318fcdc1ec184288fc02589362edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Eisbloecke: []
+  KeyToSpawn: {fileID: 5556431944742949258, guid: e098d99f12493c241977baf0cd850315, type: 3}
 --- !u!1001 &2107172536
 PrefabInstance:
   m_ObjectHideFlags: 0
