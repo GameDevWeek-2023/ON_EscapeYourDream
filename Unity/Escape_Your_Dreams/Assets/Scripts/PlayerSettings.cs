@@ -31,6 +31,13 @@ public class PlayerSettings : MonoBehaviour
         }
     }
 
+    public void resetSetting()
+    {
+        setFOV(60);
+        setMouseSensitivity(0.1f);
+        getAllSettings(out float mouseSensitivity, out int fov);
+    }
+
     public void doMouseSensitivity()
     {
         float moveMouse = sliderMouse.value;
