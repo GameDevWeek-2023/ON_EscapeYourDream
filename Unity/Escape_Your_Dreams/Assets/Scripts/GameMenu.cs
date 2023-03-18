@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
+    public object notOptoion;
+    public object theOption;
     public void PlayGame()
     {
         SceneManager.LoadScene("GameScene");
@@ -23,6 +25,16 @@ public class GameMenu : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene("StartingScreen");
+    }
+
+    public void Options()
+    {
+
+    }
+
+    public void CloseOptions()
+    {
+
     }
 
 }
