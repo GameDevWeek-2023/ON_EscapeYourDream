@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
-    public object notOptoion;
-    public object theOption;
+    public GameObject Uno;
+    public GameObject Duo;
+
     public void PlayGame()
     {
         SceneManager.LoadScene("GameScene");
@@ -29,12 +30,14 @@ public class GameMenu : MonoBehaviour
 
     public void Options()
     {
-
+        Uno.SetActive(false);
+        Duo.SetActive(true);
     }
 
     public void CloseOptions()
     {
-
+        Uno.SetActive(true);
+        Duo.SetActive(false);
     }
 
 }
