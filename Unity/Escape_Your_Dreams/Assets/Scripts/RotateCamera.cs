@@ -9,6 +9,12 @@ public class RotateCamera : MonoBehaviour
     Transform childCamera;
     [SerializeField]
     private float mouseSensitivity = 0.5f;
+    public float MouseSensitivity
+    {
+        get => mouseSensitivity;
+        set => mouseSensitivity = value;
+    }
+
     private float oldX = 0;
     private float xRotation = 0;
     Vector2 delta;
