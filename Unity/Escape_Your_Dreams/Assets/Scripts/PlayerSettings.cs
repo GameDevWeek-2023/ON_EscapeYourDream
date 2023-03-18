@@ -6,12 +6,16 @@ public class PlayerSettings : MonoBehaviour
 {
     private RotateCamera cameraMovement;
     private Camera mainCamera;
-    // Start is called before the first frame update
+    [SerializeField]
+    private bool applySettingsToScene = true;
     private void Start()
     {
-        cameraMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<RotateCamera>();
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        loadAllSettings();
+        if (applySettingsToScene)
+        {
+            cameraMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<RotateCamera>();
+            mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            loadAllSettings();
+        }
     }
 
     public void setMouseSensitivity(float speed)
