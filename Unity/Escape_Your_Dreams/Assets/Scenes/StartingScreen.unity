@@ -286,6 +286,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 243438648}
   - {fileID: 743300238}
   - {fileID: 100734012}
   m_Father: {fileID: 1852650732}
@@ -506,7 +507,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 743300238}
+  m_Father: {fileID: 66197625}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -585,7 +586,7 @@ RectTransform:
   m_Children:
   - {fileID: 1009660721}
   m_Father: {fileID: 743300238}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -904,6 +905,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &549499557 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324926149781551523, guid: c800ab0a56806e44c9f798fe2dff20b7, type: 3}
+  m_PrefabInstance: {fileID: 1324926150591708742}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &717865158
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,13 +984,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 243438648}
   - {fileID: 1987737773}
   - {fileID: 1412250741}
   - {fileID: 1279466118}
   - {fileID: 278899535}
   m_Father: {fileID: 66197625}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1009660720
 GameObject:
@@ -1283,7 +1294,7 @@ RectTransform:
   m_Children:
   - {fileID: 1060720423}
   m_Father: {fileID: 743300238}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1442,13 +1453,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Nina Utzschneider
-
-    Jonas Regh
-
-    Kay Dumler
-
-    Jan'
+  m_text: "Nina Utzschneider\nJonas Regh\nKay Dumler\nJan G\xF6tte"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1558,7 +1563,7 @@ RectTransform:
   m_Children:
   - {fileID: 1847633963}
   m_Father: {fileID: 743300238}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2466,8 +2471,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   applySettingsToScene: 0
-  sliderView: {fileID: 0}
-  sliderMouse: {fileID: 0}
+  sliderView: {fileID: 2136857986}
+  sliderMouse: {fileID: 549499557}
 --- !u!1 &1919735317
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,7 +2692,7 @@ RectTransform:
   m_Children:
   - {fileID: 55956935}
   m_Father: {fileID: 743300238}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2866,6 +2871,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136857986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324926149939840011, guid: c800ab0a56806e44c9f798fe2dff20b7, type: 3}
+  m_PrefabInstance: {fileID: 1324926150591708742}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1324926150591708742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2931,7 +2947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1324926150491105914, guid: c800ab0a56806e44c9f798fe2dff20b7, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1324926150491105914, guid: c800ab0a56806e44c9f798fe2dff20b7, type: 3}
       propertyPath: m_LocalPosition.x
