@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSettings : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerSettings : MonoBehaviour
     private Camera mainCamera;
     [SerializeField]
     private bool applySettingsToScene = true;
+    public Slider sliderView;
+    public Slider sliderMouse;
     private void Start()
     {
         if (applySettingsToScene)
@@ -16,9 +19,10 @@ public class PlayerSettings : MonoBehaviour
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             loadAllSettings();
         }
+        getAllSettings(out float mouseSensitivity, out int fov);
     }
 
-    public void setMouseSensitivity(float speed)
+    private void setMouseSensitivity(float speed)
     {
         PlayerPrefs.SetFloat("MouseSensitivity", speed);
         if (applySettingsToScene)
@@ -27,9 +31,21 @@ public class PlayerSettings : MonoBehaviour
         }
     }
 
-    public void setFOV(int fov)
+    public void doMouseSensitivity()
     {
-        PlayerPrefs.SetFloat("FOV", fov);
+        float moveMouse = sliderMouse.value;
+        setMouseSensitivity(moveMouse);
+    }
+
+    public void doFieldofView()
+    {
+        int moveView = (int)sliderView.value;
+        setFOV(moveView);
+    }
+
+    private void setFOV(int fov)
+    {
+        PlayerPrefs.SetInt("FOV", fov);
         if (applySettingsToScene)
         {
             mainCamera.fieldOfView = fov;
@@ -46,5 +62,7 @@ public class PlayerSettings : MonoBehaviour
     {
         mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 0.1f);
         fov = PlayerPrefs.GetInt("FOV", 60);
+        sliderMouse.value = mouseSensitivity;
+        sliderView.value = (float)fov; 
     }
 }
