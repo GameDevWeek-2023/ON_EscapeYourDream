@@ -7,6 +7,8 @@ public class GameMenu : MonoBehaviour
 {
     public GameObject Uno;
     public GameObject Duo;
+    public GameObject Tres;
+    public GameObject Quattro;
 
     public void PlayGame()
     {
@@ -20,12 +22,14 @@ public class GameMenu : MonoBehaviour
 
     public void Credits()
     {
-        SceneManager.LoadScene("Credits");
+        Tres.SetActive(true);
+        Quattro.SetActive(false);
     }
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene("StartingScreen");
+        Tres.SetActive(false);
+        Quattro.SetActive(true);
     }
 
     public void Options()
