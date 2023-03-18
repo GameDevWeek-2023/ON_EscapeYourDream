@@ -21,18 +21,30 @@ public class PlayerSettings : MonoBehaviour
     public void setMouseSensitivity(float speed)
     {
         PlayerPrefs.SetFloat("MouseSensitivity", speed);
-        cameraMovement.MouseSensitivity = speed;
+        if (applySettingsToScene)
+        {
+            cameraMovement.MouseSensitivity = speed;
+        }
     }
 
     public void setFOV(int fov)
     {
         PlayerPrefs.SetFloat("FOV", fov);
-        mainCamera.fieldOfView = fov;
+        if (applySettingsToScene)
+        {
+            mainCamera.fieldOfView = fov;
+        }
     }
 
     private void loadAllSettings()
     {
         cameraMovement.MouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 0.1f);
         mainCamera.fieldOfView = PlayerPrefs.GetInt("FOV", 60);
+    }
+
+    public void getAllSettings(out float mouseSensitivity, out int fov)
+    {
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 0.1f);
+        fov = PlayerPrefs.GetInt("FOV", 60);
     }
 }
