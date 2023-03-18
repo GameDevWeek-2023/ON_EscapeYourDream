@@ -665,7 +665,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8873494910976683524}
-  - component: {fileID: 8210090211381636802}
   - component: {fileID: 593005495708484067}
   m_Layer: 6
   m_Name: AudioBox
@@ -689,14 +688,6 @@ Transform:
   m_Father: {fileID: 7705502125613183329}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &8210090211381636802
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4898490432209690991}
-  m_Enabled: 1
 --- !u!82 &593005495708484067
 AudioSource:
   m_ObjectHideFlags: 0
