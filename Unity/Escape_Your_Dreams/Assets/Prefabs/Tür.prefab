@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 8740992634767291833}
   - component: {fileID: 686092250025128499}
   - component: {fileID: 2724708715894916314}
-  - component: {fileID: 3863793990279920707}
   m_Layer: 0
   m_Name: Doorknob
   m_TagString: Untagged
@@ -118,20 +117,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3863793990279920707
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363658038379295389}
-  m_Material: {fileID: 13400000, guid: fc0fb79ce98782d4c97f931dbac86952, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6507589643898853994, guid: 37b2c31354119224a9e7fdee419ee984, type: 3}
 --- !u!1 &5269319000299113114
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +282,6 @@ GameObject:
   - component: {fileID: 1240371996713841080}
   - component: {fileID: 4024312210453992853}
   - component: {fileID: 2093159821513007724}
-  - component: {fileID: 9013132806836255362}
   m_Layer: 0
   m_Name: Doorknob (2)
   m_TagString: Untagged
@@ -370,17 +354,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &9013132806836255362
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6743854288227114562}
-  m_Material: {fileID: 13400000, guid: fc0fb79ce98782d4c97f931dbac86952, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6507589643898853994, guid: 37b2c31354119224a9e7fdee419ee984, type: 3}
