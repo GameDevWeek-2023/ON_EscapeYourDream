@@ -10,7 +10,7 @@ public class PostItDrop : MonoBehaviour
     private bool isConnected = true;
     private void Start()
     {
-        ignoreLayers = LayerMask.GetMask("Grabbable", "GrabbableConnected", "Player", "Grabbed", "Interactable");
+        ignoreLayers = LayerMask.GetMask("Grabbable", "GrabbableConnected", "Player", "Grabbed", "Interactable", "Ignore Post-It");
         rb = gameObject.GetComponent<Rigidbody>();
     }
     private void GetDropped()

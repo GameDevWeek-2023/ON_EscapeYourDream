@@ -174,7 +174,7 @@ MonoBehaviour:
   ladderSpeed: 0.05
   groundLayer:
     serializedVersion: 2
-    m_Bits: 1672
+    m_Bits: 3720
   extraFallForce: 0.025
 --- !u!114 &775745667527003303
 MonoBehaviour:
