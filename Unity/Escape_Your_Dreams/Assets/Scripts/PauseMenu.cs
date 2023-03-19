@@ -34,7 +34,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
         // GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().fieldOfView = PlayerPrefs.GetInt("FOV", 60);
         // GetComponent<RotateCamera>().MouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 0.1f);
-        
+        Paused = false;
     }
 
     private void StartPause()
@@ -48,6 +48,7 @@ public class PauseMenu : MonoBehaviour
         GetComponent<RotateCamera>().enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Paused = true;
     }
 
     private void OnPauseGame()
@@ -55,12 +56,10 @@ public class PauseMenu : MonoBehaviour
         if (Paused)
         {
             EndPause();
-            Paused = false;
         }
         else
         {
             StartPause();
-            Paused = true;
         }
     }
 }
